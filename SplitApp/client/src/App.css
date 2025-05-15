@@ -1,0 +1,308 @@
+.main-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4faff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header */
+.main-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 40px;
+  background-color: white;
+  border-bottom: 1px solid #cce0ff;
+}
+
+.auth-button {
+  background-color: transparent;
+  color: #0077cc;
+  border: 1px solid #0077cc;
+  padding: 8px 16px;
+  margin-left: 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #0077cc;
+  color: white;
+}
+
+/* Main content */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.landing-title {
+  font-size: 3rem;
+  color: #004d99;
+  margin-bottom: 1rem;
+}
+
+.landing-subtitle {
+  font-size: 1.25rem;
+  color: #333;
+  max-width: 600px;
+}
+
+/* Footer */
+.footer-text {
+  text-align: center;
+  padding: 16px;
+  font-size: 0.9rem;
+  color: #666;
+  background-color: #e6f0ff;
+  border-top: 1px solid #cce0ff;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align the logo to the far left */
+  flex-grow: 1; /* Push other elements to the right */
+}
+
+.header-logo {
+  height: 50px;
+  width: 50px;
+  margin-right: 2px;
+}
+
+/* Modal background */
+.login-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Login frame */
+.login-frame {
+  background-color: #ffffff; /* Same background as flashcards */
+  border: 1px solid #cce0ff; /* Same border as flashcards */
+  border-radius: 8px; /* Same border radius as flashcards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Same shadow as flashcards */
+  padding: 20px; /* Adjusted padding to match flashcards */
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Same hover effect */
+}
+
+.login-frame:hover {
+  transform: translateY(-5px); /* Same hover effect as flashcards */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Same hover shadow as flashcards */
+}
+
+/* Inputs */
+.login-input {
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccd;
+  border-radius: 6px;
+}
+
+/* Submit */
+.submit-button {
+  background-color: #0077cc;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #005fa3;
+}
+
+/* Close X button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 1.5rem;
+  border: none;
+  background: transparent;
+  color: #333;
+  cursor: pointer;
+}
+
+.flashcards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.flashcard {
+  background-color: #ffffff;
+  border: 1px solid #cce0ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flashcard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.flashcard h2 {
+  font-size: 1.5rem;
+  color: #0077cc;
+  margin-bottom: 10px;
+}
+
+.flashcard p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.payment-container {
+  margin: 50px auto;
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border: 1px solid #cce0ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  align-items: center;
+}
+
+.payment-form label,
+.payment-form input {
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.remember-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+  width: auto !important;
+  max-width: none !important;
+  text-align: left !important;
+}
+
+.remember-checkbox input[type="checkbox"] {
+  width: auto;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.main-content-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+  margin-top: 40px;
+}
+
+.about-section-left {
+  flex: 1 1 350px;
+  max-width: 420px;
+  min-width: 300px;
+}
+
+.advantages-section {
+  flex: 1 1 350px;
+  max-width: 420px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.advantages-flashcards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.advantage-flashcard {
+  min-height: 120px;
+}
+
+.horizontal-flashcards {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.horizontal-flashcard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #cce0ff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 8px;
+}
+
+.service-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #ffffff;
+  margin: 5px;
+}
