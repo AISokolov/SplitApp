@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
 const PaymentPage = () => {
   const [remember, setRemember] = React.useState(false);
+  const navigate = useNavigate();
+
   return (
     <div className="main-page">
       <header className="main-header">
@@ -29,7 +32,7 @@ const PaymentPage = () => {
             Remember my payment method
           </label>
 
-          <button type="submit" className="auth-button">Pay</button>
+          <button type="submit" className="auth-button" onClick={() => navigate('/main')}>Pay</button>
         </form>
       </main>
     </div>

@@ -1,0 +1,42 @@
+CREATE TABLE User (
+  u_id INT PRIMARY KEY AUTO_INCREMENT,
+  user_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE `Group` (
+  g_id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Payment (
+  payment_id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  card_holder VARCHAR(255) NOT NULL,
+  card_number_last4 CHAR(4) NOT NULL,
+  card_expiry CHAR(5) NOT NULL,
+  card_type VARCHAR(50) NOT NULL,
+  billing_address VARCHAR(255) NOT NULL,
+  created_at DATE NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES User(u_id)
+);
+
+CREATE TABLE SubscriptionTypeList (
+  type_id INT PRIMARY KEY AUTO_INCREMENT,
+  service_name VARCHAR(255) NOT NULL,
+  description TEXT,
+  icon_image VARCHAR(255),
+  cost DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE Subscription (
+  sub_id INT PRIMARY KEY AUTO_INCREMENT,
+  billing_date DATE NOT NULL,
+  owner_id INT NOT NULL,
+  group_id INT NOT NULL,
+  type_id INT NOT NULL,
+  FOREIGN KEY (owner_id) REFERENCES User(u_id),
+  FOREIGN KEY (group_id) REFERENCES `Group`(g_id),
+  FOREIGN KEY (type_id) REFERENCES SubscriptionTypeList(type_id)
+);

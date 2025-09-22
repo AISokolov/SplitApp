@@ -1,0 +1,9 @@
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  min-height: 64px;
+  background-color: white;
+  border-bottom: 1px solid #cce0ff;
+}
