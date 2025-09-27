@@ -12,7 +12,7 @@ const ProfilePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://88.200.63.148:7777/users/profile', { credentials: 'include' })
+    fetch('http://91.228.153.55:7777/users/profile', { credentials: 'include' })
       .then(res => res.json())
       .then(data => {
         if (data.success) {
@@ -24,7 +24,7 @@ const ProfilePage = () => {
         }
       });
 
-    fetch('http://88.200.63.148:7777/subscriptions/user', { credentials: 'include' })
+    fetch('http://91.228.153.55:7777/subscriptions/user', { credentials: 'include' })
       .then(res => res.json())
       .then(data => {
         if (data.success) {
@@ -38,7 +38,7 @@ const ProfilePage = () => {
 
   const handleSave = async () => {
     setMessage('');
-    const res = await fetch('http://88.200.63.148:7777/users/profile/update', {
+    const res = await fetch('http://91.228.153.55:7777/users/profile/update', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -51,7 +51,7 @@ const ProfilePage = () => {
   const unsubscribe = (typeId, serviceName) => {
     console.log('Unsubscribing from typeId:', typeId); // Debug log
     console.log('Unsubscribing from serviceName:', serviceName); // Debug log
-    fetch('http://88.200.63.148:7777/subscriptions/unsubscribe', {
+    fetch('http://91.228.153.55:7777/subscriptions/unsubscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -61,7 +61,7 @@ const ProfilePage = () => {
       .then(data => {
         if (data.success) {
           // Fetch the updated list of subscriptions
-          fetch('http://88.200.63.148:7777/subscriptions/user', { credentials: 'include' })
+          fetch('http://91.228.153.55:7777/subscriptions/user', { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
               if (data.success) {

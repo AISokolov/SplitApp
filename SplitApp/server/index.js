@@ -10,6 +10,9 @@ const app = express()
 
 const session = require('express-session')
 
+//const BASE_IP = 'http://88.200.63.148:7778'
+const BASE_IP = 'http://91.228.153.55:7778'
+
 app.use(session({
   secret: 'some secret', // Replace with a strong secret
   resave: false,
@@ -19,7 +22,7 @@ app.use(session({
 
 app.use(express.urlencoded({extended : true}));
 app.use(cors({
-   origin: 'http://88.200.63.148:7778',
+   origin: BASE_IP,
    methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
    credentials: true
 }))

@@ -1,12 +1,13 @@
 const express = require('express');
 const mysql = require('mysql2');
 
-const  conn = mysql.createConnection({
-    host: "localhost",
-    user: "studenti",
-    password: "S039C8R7",
-    database: 'SISIII2025_89231170',
-  })
+const conn = mysql.createConnection({
+    host: "localhost",           
+    user: "splituser",           
+    password: "StrongPassword123!", 
+    database: "splitappdb",      
+    port: 3306
+});
   
 conn.connect((err) => {
       if(err){

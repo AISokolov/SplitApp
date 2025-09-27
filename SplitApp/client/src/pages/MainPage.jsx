@@ -12,14 +12,14 @@ function MainPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://88.200.63.148:7777/subscriptions/types')
+    fetch('http://91.228.153.55:7777/subscriptions/types')
       .then(res => res.json())
       .then(data => setServices(data))
       .catch(err => console.error('Failed to fetch services:', err));
   }, []);
 
   const fetchGroups = (typeId) => {
-    fetch(`http://88.200.63.148:7777/subscriptions/groups/${typeId}`, {
+    fetch(`http://91.228.153.55:7777/subscriptions/groups/${typeId}`, {
       credentials: 'include', // Include cookies to maintain the session
     })
       .then(res => res.json())
@@ -40,7 +40,7 @@ function MainPage() {
   const closeModal = () => setSelectedService(null);
 
   const joinGroup = (groupId, groupName) => {
-    fetch('http://88.200.63.148:7777/subscriptions/groups/join', {
+    fetch('http://91.228.153.55:7777/subscriptions/groups/join', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include', // Include cookies to maintain the session
@@ -59,7 +59,7 @@ function MainPage() {
   };
 
   const createGroup = () => {
-    fetch('http://88.200.63.148:7777/subscriptions/groups/create', {
+    fetch('http://91.228.153.55:7777/subscriptions/groups/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include', // Include cookies to maintain the session

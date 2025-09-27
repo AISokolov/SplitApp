@@ -21,3 +21,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+# database dump
+splitapp/SplitApp/server/db/SISIII2025_89231170.sql

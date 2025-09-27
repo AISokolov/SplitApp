@@ -40,3 +40,15 @@ CREATE TABLE Subscription (
   FOREIGN KEY (group_id) REFERENCES `Group`(g_id),
   FOREIGN KEY (type_id) REFERENCES SubscriptionTypeList(type_id)
 );
+
+
+-- Create a database (pick a name, e.g. splitappdb)
+CREATE DATABASE splitappdb CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+-- Create a user (replace with your own)
+CREATE USER 'splituser'@'localhost' IDENTIFIED BY 'StrongPassword123!';
+
+-- Give permissions
+GRANT ALL PRIVILEGES ON splitappdb.* TO 'splituser'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;

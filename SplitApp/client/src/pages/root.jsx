@@ -52,7 +52,7 @@ function App() {
 ];
 
    useEffect(() => {
-    fetch('http://88.200.63.148:7777/subscriptions/types')
+    fetch('http://91.228.153.55:7777/subscriptions/types')
       .then(res => res.json())
       .then(data => {
         if (data.success !== false) {
@@ -67,7 +67,7 @@ function App() {
   async function handleLogin() {
     setLoginError('');
     try {
-      const response = await fetch('http://88.200.63.148:7777/users/login', {
+      const response = await fetch('http://91.228.153.55:7777/users/login', {
         method: 'POST',
         credentials: 'include', 
         headers: {
@@ -94,7 +94,7 @@ function App() {
   setRegisterError('');
   setRegisterSuccess('');
   try {
-        const response = await fetch('http://88.200.63.148:7777/users/register', {
+        const response = await fetch('http://91.228.153.55:7777/users/register', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
