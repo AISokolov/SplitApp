@@ -38,7 +38,7 @@ Even if payments are manual, SplitApp reduces confusion, avoids misunderstanding
   ![SubscriptionsList](SplitApp/screenshots/sub_list.png)
 
 - **Subscription Detailes**  
-  ![SubDetails](SplitApp/screenshots/sub_detailes.png)
+  ![SubDetails](SplitApp/screenshots/sub_details.png)
 
 - **Payment**  
   ![Payment](SplitApp/screenshots/pay_details.png)
@@ -52,4 +52,5 @@ Even if payments are manual, SplitApp reduces confusion, avoids misunderstanding
 
 
 This project is licensed under the **MIT License**.
+
 
