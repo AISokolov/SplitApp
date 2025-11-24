@@ -1,6 +1,7 @@
 const express = require('express')
 const users = require("./routes/users")
 const subscriptions = require('./routes/subscriptions');
+const payments = require('./routes/payments');
 require('dotenv').config()
 const DB = require('./db/dbConn.js')
 const cors = require('cors')
@@ -36,3 +37,4 @@ app.use(express.json());
 
 app.use('/users', users);
 app.use('/subscriptions', subscriptions);
+app.use('/payments', payments);

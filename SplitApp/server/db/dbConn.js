@@ -287,7 +287,7 @@ dataPool.unsubscribeUserFromService = (typeId, userId) => {
         });
       });
 
-      // Step 3: If no members remain, delete the subscription
+      // Step 3: If no members remain, delete the subscription and associated group
       if (!hasMembers) {
         console.log('Step 3: No members remain, deleting subscription...');
         const deleteSubscriptionQuery = `
@@ -302,6 +302,24 @@ dataPool.unsubscribeUserFromService = (typeId, userId) => {
               return reject(err);
             }
             console.log('Subscription deleted');
+            resolve();
+          });
+        });
+        console.log('Also deleting associated group...');
+        const deleteGroupQuery = `
+          DELETE g
+          FROM \`Group\` g
+          JOIN Subscription s ON g.g_id = s.group_id
+          WHERE s.type_id = ?;
+        `;
+        console.log('Executing SQL:', deleteGroupQuery, [typeId]); // Log the SQL query
+        await new Promise((resolve, reject) => {
+          conn.query(deleteGroupQuery, [typeId], (err) => {
+            if (err) {
+              console.error('Error deleting group:', err);
+              return reject(err);
+            }
+            console.log('Associated group deleted');
             resolve();
           });
         });
@@ -329,6 +347,34 @@ dataPool.getTypeIdByServiceName = (serviceName) => {
         console.error('Error fetching typeId by serviceName:', err);
         return reject(err);
       }
+      resolve(results);
+    });
+  });
+};
+
+dataPool.savePayment = (userId, cardHolder, cardNumberLast4, cardNumber, cardExpiry) => {
+  return new Promise((resolve, reject) => {
+    const sql = 'INSERT INTO Payment (user_id, card_holder, card_number_last4, card_number, card_expiry) VALUES (?, ?, ?, ?, ?)';
+    conn.query(sql, [userId, cardHolder, cardNumberLast4, cardNumber || null, cardExpiry], (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(result);
+    });
+  });
+}
+
+dataPool.getSavedPayment = (userId) => {
+  return new Promise((resolve, reject) => {
+    const sql = `
+      SELECT card_holder, card_number_last4, card_expiry
+      FROM Payment
+      WHERE user_id = ?
+      ORDER BY payment_id DESC
+      LIMIT 1
+    `;
+    conn.query(sql, [userId], (err, results) => {
+      if (err) return reject(err);
       resolve(results);
     });
   });

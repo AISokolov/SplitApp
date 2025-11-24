@@ -53,7 +53,6 @@ users.post('/register', async (req, res) => {
     }
 });
 
-// routes/users.js
 users.get('/profile', async (req, res) => {
   if (!req.session.user_name) {
     return res.status(401).json({ success: false, message: "Not logged in" });
@@ -84,6 +83,14 @@ users.post('/profile/update', async (req, res) => {
     res.json({ success: true, message: "Profile updated" });
   } catch (err) {
     res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+users.get('/me', (req, res) => {
+  if (req.session && req.session.userId) {
+    res.json({ user_id: req.session.userId});
+  } else {
+    res.status(401).json({ message: 'Not authenticated' });
   }
 });
 
