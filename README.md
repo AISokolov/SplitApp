@@ -23,9 +23,8 @@ Even if payments are manual, SplitApp reduces confusion, avoids misunderstanding
 ## 🛠️ Tech Stack
 
 - **Frontend:** React (modern, component-based UI)
-- **Backend:** Node.js (MySQL driver: `mysql` or `mysql2`)  
-- **Database:** MySQL 8.0+ (compatible with MariaDB)  
-- **Icons/Assets:** Stored as BLOBs inside database tables
+- **Backend:** Node.js
+- **Database:** MySQL 8.0
 
 ---
 
@@ -52,5 +51,6 @@ Even if payments are manual, SplitApp reduces confusion, avoids misunderstanding
 
 
 This project is licensed under the **MIT License**.
+
 
 
